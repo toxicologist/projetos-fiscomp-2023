@@ -1,2 +1,2 @@
 # projetos-fiscomp
-Projetos da Introdução à Física Computacional (2022.2)
+Projetos da Introdução à Física Computacional com o prof. Hoyos (2023.2)
