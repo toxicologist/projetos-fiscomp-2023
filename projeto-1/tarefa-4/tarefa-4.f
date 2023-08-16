@@ -12,6 +12,7 @@
             do j=2,(i-1)
                   if (mod(i,j).eq.0) then ! se o numero nao tem resto de divisão por um numero menor que ele, ele não é primo
                         primo = .false.
+			exit
 !                  else if(j.eq.(i-1)) then ! Se j == n-1, significa que chegamos no final do loop, ou seja, i é primo!
 !                        write(*,*) "primo"
 !                        ntotal = ntotal + 1
