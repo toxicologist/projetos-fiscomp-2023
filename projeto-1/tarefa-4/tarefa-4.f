@@ -5,6 +5,8 @@
       write(*,*) "Insira N:"
       read(*,*) n
 
+      open(unit=1, file='primos-saida') ! arquivo de saída
+
       ntotal = 0 ! n total de primos
       
       do i=2,n ! começo em 2 pq assumo que 1 não é primo
@@ -20,11 +22,15 @@
             end do
             if (primo) then
                   write(*,*) i, "primo"
+                  write(1,*) i
                   ntotal = ntotal + 1
             end if
       end do
 
       write(*,*) "N total de primos:", ntotal
+      write(1,*) "N total de primos:", ntotal
+
+      close(1)
 
       end
             
