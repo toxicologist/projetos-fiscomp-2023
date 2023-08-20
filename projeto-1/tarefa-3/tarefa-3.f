@@ -43,8 +43,8 @@
 
       ! agora vamos escrever no arquivo novo
       open(unit=2, file='ordenada')
-      write(*,*) "Arquivo ordenado até m=", m
-      write(2,*) "Arquivo ordenado até m=", m
+      write(*,*) "M=", m
+      write(2,*) "M=", m
       do i2=1,m
             write(*,*) array_arquivo(i2)
             write(2,*) array_arquivo(i2)
