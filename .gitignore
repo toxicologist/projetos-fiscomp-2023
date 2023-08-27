@@ -33,3 +33,11 @@
 
 # output
 *.dat
+
+# latex stuff
+*.pygtex
+*.aux
+*.log
+*out
+*.run.xml
+*.synctex.gz

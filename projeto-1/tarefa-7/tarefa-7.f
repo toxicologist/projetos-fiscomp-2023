@@ -1,6 +1,6 @@
 
       implicit real*8 (a-h,o-z)
-      parameter(iterations=1000000)
+      parameter(iterations=10000000)
       integer d
 
       ! O algoritmo é o seguinte: calcular pontos aleatórios e ver quantos deles estão dentro ou fora da esfera 
@@ -19,8 +19,9 @@
       do i=1,iterations
             distancia = 0.e0
             if (mod(i, iterations/10).eq.0) then
+                  ! Imprimir a porcentagem concluída (para dimensões altas, o programa demora para rodar.)
                   n_porcento = i/(iterations/100)
-                  write(*,*) "porcentagem concluido:", n_porcento, "%"
+                  !write(*,*) "porcentagem concluido:", n_porcento, "%"
             end if
 
             do j=1,d

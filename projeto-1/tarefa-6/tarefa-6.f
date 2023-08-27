@@ -9,12 +9,16 @@
       rho = 3**(1/dble(n))
       do k=0,(n-1)
             theta = (2*dble(k))/dble(n)
-            x = rho*dcos(theta*pi)
-            y = rho*dsin(theta*pi)
-            z = dcmplx(x, y)
+            x_w = rho*dcos(theta*pi)
+            y_w = rho*dsin(theta*pi)
+
+            ! z = w+2
+            x_z = x_w + 2
+            y_z = y_w
+
+            z = dcmplx(x_z, y_z)
             write(*,*)"k=",k
-            write(*,*) "forma polar: |z| =", rho, "theta = pi*", theta
-            write(*,*) "forma cartesiana: ", z
+            write(*,*) "z=", z
       end do
       
       end
