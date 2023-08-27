@@ -3,7 +3,7 @@
       parameter(iterations=10000000)
       integer d
 
-      open(unit=1, file='output.dat')
+      open(unit=1, file='tarefa-8-saida.dat')
 
       write(*,*)"Insira d (número de dimensões):"
       read(*,*)d

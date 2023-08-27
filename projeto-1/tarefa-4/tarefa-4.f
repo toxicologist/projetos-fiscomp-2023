@@ -5,7 +5,7 @@
       write(*,*) "Insira N:"
       read(*,*) n
 
-      open(unit=1, file='primos-saida') ! arquivo de saída
+      open(unit=1, file='tarefa-4-saida.dat') ! arquivo de saída
 
       ntotal = 0 ! n total de primos
       

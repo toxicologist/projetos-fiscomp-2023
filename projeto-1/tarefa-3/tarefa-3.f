@@ -42,7 +42,7 @@
       end do
 
       ! agora vamos escrever no arquivo novo
-      open(unit=2, file='ordenada')
+      open(unit=2, file='tarefa-3-saida.dat')
       write(*,*) "M=", m
       write(2,*) "M=", m
       do i2=1,m
