@@ -1,15 +1,12 @@
       implicit real*8 (a-h,o-z)
-      parameter(n_andarilhos=500)
-      parameter(itamanho_particao=30)
-      parameter(n_subdivisoes=2500)
+      parameter(n_andarilhos=500) ! número de andarilhos
+      parameter(itamanho_malha=3000) ! tamanho total da malha
+      parameter(itamanho_particao=300) ! tamanho da subdivisão da malha
       parameter(n_passos=1000000) ! 1 milhão de passos
-      parameter(itamanho_malha=3000)
-      integer iposicoes(n_andarilhos, 2) ! Posição de cada um dos andarilhos
+      parameter(n_iteracoes=2500) ! número de iterações/subdivisões do random walk
+      integer iposicoes(n_andarilhos, 2) ! Matriz posição de cada um dos andarilhos
 
       open(unit=1, file='tarefa-4-saida.dat')
-
-      ! Iremos dividir nosso passeio aleatório em 20 subdivisoes (1000000/20), onde pararemos para
-      ! calcular a entropia total do sistema.
 
       ! primeiro inicializar a matriz iposicoes
       do i=1,n_andarilhos
@@ -17,13 +14,15 @@
          iposicoes(i,2) = 0
       end do
 
-      incremento_passos = n_passos/n_subdivisoes
-      i_n_divisoes_malha = itamanho_malha/itamanho_particao
+      incremento_passos = n_passos/n_iteracoes ! Quantos passos damos em cada iteração
+      i_n_divisoes_malha = itamanho_malha/itamanho_particao ! Quantas subdivisões temos em cada eixo da malha
 
-      do nsub=1,n_subdivisoes
-         write(*,*) "Iteração", nsub, "de", n_subdivisoes
-         do j=( (nsub-1)*incremento_passos ),(nsub*incremento_passos)
+      do niter=1,n_iteracoes
+         write(*,*) "Iteração", niter, "de", n_iteracoes
+         do j=( (niter-1)*incremento_passos ),(niter*incremento_passos)
             do i=1,n_andarilhos
+               ! O seguinte código copiado da tarefa 3.
+
                ! como queremos 4 possibilidades, com 0.25 de chance cada um, fazemos o seguinte:
                ! primeiro escolhemos qual das direções (x ou y) iremos andar,
                ! depois fazemos outro rand() para decidir se vamos +1 ou -1 naquela direção
@@ -71,7 +70,7 @@
          end do
          write(*,*)"Entropia:", entropia
          ! no arquivo, escrevemos o número N de passos no eixo x, e a entropia no eixo Y
-         write(1,*)nsub*incremento_passos,entropia
+         write(1,*)niter*incremento_passos,entropia
 
       end do
 
