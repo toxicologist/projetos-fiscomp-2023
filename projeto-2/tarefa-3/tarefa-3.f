@@ -1,9 +1,11 @@
       implicit real*8 (a-h,o-z)
       parameter(n_andarilhos=2000)
       integer iposicao(2)
+      real*8 soma_r(2)
 
-      soma_x = 0.0
-      soma_x2 = 0.0
+      soma_r(1)=0.0
+      soma_r(2)=0.0
+      soma_r2 = 0.0
 
       write(*,*)"Insira a potência de n (10^potência)"
       read(*,*)npot
@@ -32,6 +34,16 @@
          write(*,*)iposicao
          write(1,*)iposicao
 
+         soma_r = soma_r + real(iposicao)
+         soma_r2 = soma_r2 + real( (iposicao(1)**2) + (iposicao(2)**2) )
+
       end do
       close(1)
+
+      soma_r = soma_r / real(n_andarilhos)
+      soma_r2 = soma_r2 / real(n_andarilhos)
+
+      write(*,*)"<r>:", soma_r
+      write(*,*)"<r^2>:", soma_r2
+
       end
