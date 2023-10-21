@@ -17,7 +17,7 @@
       f2_correto = anal_f2(x)
       f3_correto = anal_f3(x)
 
-      write(*,*)f1_correto, f2_correto, f3_correto
+      !write(*,*)f1_correto, f2_correto, f3_correto
 
       do i=1,14
          h = valores_h(i)
@@ -28,10 +28,35 @@
          valores_tabela(5,i) = f2_3s(x,h) - f2_correto
          valores_tabela(6,i) = f2_5s(x,h) - f2_correto
          valores_tabela(7,i) = f3_5a(x,h) - f3_correto
-
-         write(1,*) (valores_tabela(j, i), j=1,7)
       end do
 
+      ! fazer valores da tabela serem absolutos
+      do j=1,7
+         do i=1,14
+            valores_tabela(j,i) = abs(valores_tabela(j,i))
+         end do
+      end do
+
+      write(*,*)"Valores da tabela da primeira derivada:"
+      ! printar valores da primeira tabela, de f'
+      do i=1,14
+         write(*,*) (valores_tabela(j,i), j=1,4)
+      end do
+      write(*,*)"Valor exato:", f1_correto
+
+      !printar valores da segunda tabela, de f''
+      write(*,*)"Valores da tabela da segunda derivada:"
+      do i=1,14
+         write(*,*) (valores_tabela(j,i), j=5,6)
+      end do
+      write(*,*)"Valor exato:", f2_correto
+
+      write(*,*)"Valores da tabela da terceira derivada:"
+      ! printar valores da terceira tabela, de f'''
+      do i=1,14
+         write(*,*) valores_tabela(7,i)
+      end do
+      write(*,*)"Valor exato:", f3_correto
       end
 
       function cf(x)
