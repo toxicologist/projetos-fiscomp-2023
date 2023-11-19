@@ -1,0 +1,9 @@
+
+a 0.5:
+   regulariza após t ~ 20
+
+a 0.75:
+   regulariza após t ~ 50
+
+a 1.0:
+   regulariza após t ~ 30
