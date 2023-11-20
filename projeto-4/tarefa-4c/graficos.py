@@ -9,7 +9,7 @@ plt.style.use('dark_background')
 # Alphas e t_trans
 #alphas = [0.5, 0.75, 1.0, 1.25, 1.4, 1.5, 1.2, 10.0]
 #t_trans = [20.0, 50.0, 30.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-alphas = [1.2]
+alphas = [1.5]
 t_trans = [0.0]
 
 # Valores iniciais de teta0 e w0

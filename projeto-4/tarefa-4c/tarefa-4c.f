@@ -6,8 +6,8 @@
       w0 = 0d0
       teta0 = 0d0
       teta0original = teta0
-      total_tau = 1000d0*2d0*pi
-      !total_tau = 1d4*2d0*pi
+      !total_tau = 1000d0*2d0*pi
+      total_tau = 1d4*2d0*pi
       dtau = 1d-3
       iteracoes = dint(total_tau/dtau)
       gamma = 0.15d0

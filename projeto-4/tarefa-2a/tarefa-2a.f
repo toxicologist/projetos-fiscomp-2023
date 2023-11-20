@@ -9,6 +9,7 @@
 
       open(file='tarefa-2-saida.dat', unit=1)
       open(file='periodos-analitico.dat', unit=2)
+      open(file='periodo_aprox.dat', unit=3)
 
       iangulomin = -iangulomax
 
@@ -67,12 +68,17 @@
             teta0 = tetanovo
          end do
 10       t_periodo = 2d0*(t_periodo_fim - t_periodo_inicio)
+
+         periodo_aprox = 2d0*pi*(1d0 + (1d0/16d0)*(teta0original**2d0))
+
          write(*,*)"Angulo:",iang,"graus. Periodo calculado:",t_periodo,
-     &   "Periodo analitico:", t_anal!, "h=",h
+     &   "Periodo analitico:", t_anal, "Periodo aprox:", periodo_aprox
          write(1,*)iang,t_periodo
          if (t_anal.gt.0d0) then
             write(2,*)iang,t_anal
          endif
+         write(3,*)iang,periodo_aprox
+
       end do
 
       end
